@@ -1,0 +1,88 @@
+#############Haihe LUCC ---> Joey-by©Yanjie Xu###############
+
+#Check the file path for your project
+setwd("C:/Users/Joey/Desktop/20180515PKUPostdoc/dat-20180503memo/20180515R")
+#Load required packages
+library(lme4)
+library(lmerTest)
+library(car)
+
+#Read the datafile
+data.all<-read.csv("YanjieXu.csv")
+head(data.all)
+data.all$Season=factor(data.all$Season, levels=levels(data.all$Season)[c(4,2,3,1)])
+
+##1.Linear model for different seasons
+
+#1.1 Spring
+data.spring=data.all[data.all$Season == "Spring",]
+data.spring = subset(data.all, data.all$Season == "Spring")
+summary(lm(LST~NDVI,data = data.spring))
+summary(lm(CWC~LST,data = data.spring))
+summary(lm(NDVI~CWC,data = data.spring))
+
+#1.2 Summer
+data.summer=data.all[data.all$Season == "Summer",]
+summary(lm(LST~NDVI,data = data.summer))
+summary(lm(CWC~LST,data = data.summer))
+summary(lm(NDVI~CWC,data = data.summer))
+
+#1.3 Fall
+data.fall=data.all[data.all$Season == "Fall",]
+summary(lm(LST~NDVI,data = data.fall))
+summary(lm(CWC~LST,data = data.fall))
+summary(lm(NDVI~CWC,data = data.fall))
+
+#1.4 Winter
+data.winter=data.all[data.all$Season == "Winter",]
+summary(lm(LST~NDVI,data = data.winter))
+summary(lm(CWC~LST,data = data.winter))
+summary(lm(NDVI~CWC,data = data.winter))
+
+##2.Linear models for different land cover types
+#First get all the letters of land cover 
+lucc = unique(data.all$Lucc)
+lucc
+
+#2.1 A
+i=lucc[1]
+data=data.all[data.all$Lucc == i,]
+summary(lm(LST~NDVI,data = data))
+summary(lm(CWC~LST,data = data))
+summary(lm(NDVI~CWC,data = data))
+
+
+#2.2 B
+i=lucc[2]
+data=data.all[data.all$Lucc == i,]
+summary(lm(LST~NDVI,data = data))
+summary(lm(CWC~LST,data = data))
+summary(lm(NDVI~CWC,data = data))
+
+#2.3 F
+i=lucc[3]
+data=data.all[data.all$Lucc == i,]
+summary(lm(LST~NDVI,data = data))
+summary(lm(CWC~LST,data = data))
+summary(lm(NDVI~CWC,data = data))
+
+#2.4 G
+i=lucc[4]
+data=data.all[data.all$Lucc == i,]
+summary(lm(LST~NDVI,data = data))
+summary(lm(CWC~LST,data = data))
+summary(lm(NDVI~CWC,data = data))
+
+#2.5 U
+i=lucc[5]
+data=data.all[data.all$Lucc == i,]
+summary(lm(LST~NDVI,data = data))
+summary(lm(CWC~LST,data = data))
+summary(lm(NDVI~CWC,data = data))
+
+#2.6 W
+i=lucc[6]
+data=data.all[data.all$Lucc == i,]
+summary(lm(LST~NDVI,data = data))
+summary(lm(CWC~LST,data = data))
+summary(lm(NDVI~CWC,data = data))
