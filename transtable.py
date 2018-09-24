@@ -7,6 +7,6 @@ test=np.loadtxt("XXXX.csv", dtype=np.float, delimiter=',')
 #to show as array
 test.tolist()
 #to transpose 转置
-np.transpose(test)
+testT=np.transpose(test)
 #to convert to one-dimensional array
-test.reshape(192,1)
+testT.reshape(192,1)
